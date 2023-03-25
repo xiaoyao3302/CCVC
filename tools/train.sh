@@ -1,0 +1,27 @@
+#!/bin/bash
+python CCVC_aug.py \
+    --config 'configs/cityscapes.yaml' \
+    --backbone 'resnet50' \
+    --labeled_id_path 'partitions/cityscapes/1_16/labeled.txt' \
+    --unlabeled_id_path 'partitions/cityscapes/1_16/unlabeled.txt' \
+    --save_path 'exp/cityscapes/1_16/ce1_con1_dis1_mapping_norm_dropout_vote_threshold_00_2' \
+    --load_path 'test_DDP' \
+    --nodes 1 \
+    --port 2023 \
+    --gpus 4 \
+    --epochs 250 \
+    --batch_size 2 \
+    --crop_size 712 \
+    --mode_mapping 'else' \
+    --mode_confident 'vote_threshold' \
+    --conf_threshold 0.0 \
+    --use_SPL False \
+    --use_MLP True \
+    --use_norm True \
+    --use_dropout True \
+    --w_CE 1.0 \
+    --w_con 1.0 \
+    --w_dis 1.0 \
+    --w_confident 2.0 \
+    --lr_network 5.0 \
+    --lr_backbone 5.0

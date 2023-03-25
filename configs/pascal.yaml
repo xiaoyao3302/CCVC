@@ -1,0 +1,10 @@
+# arguments for dataset
+dataset: pascal
+nclass: 21
+data_root: '/common-data/zicheng.wang/CVPR/data/dataset/Pascal/'
+
+# arguments for model
+multi_grid: False
+replace_stride_with_dilation: [False, False, True]
+dilations: [6, 12, 18]
+

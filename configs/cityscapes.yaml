@@ -1,0 +1,17 @@
+# arguments for dataset
+dataset: cityscapes
+nclass: 19
+data_root: '/common-data/zicheng.wang/CVPR/data/dataset/Cityscapes/'
+
+# arguments for training
+criterion:
+  name: OHEM
+  kwargs:
+    ignore_index: 255
+    thresh: 0.7
+    min_kept: 100000
+
+# arguments for model
+multi_grid: True
+replace_stride_with_dilation: [False, True, True]
+dilations: [12, 24, 36]
